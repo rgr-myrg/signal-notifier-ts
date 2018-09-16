@@ -32,9 +32,9 @@ export class Notifier implements INotifier {
             return;
         }
 
-		for (let i = this.notifications.length; i--;) {
-			// non-null assertion operator postfix.
-			this.notifications.shift()!.post();
-		}
-	}
+        for (let i = this.notifications.length; i--;) {
+            // non-null assertion operator postfix.
+            this.notifications.shift()!.post();
+        }
+    }
 }
