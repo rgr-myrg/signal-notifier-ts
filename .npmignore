@@ -1,0 +1,11 @@
+.git/
+.gitignore
+.nyc_output
+.travis.yml
+coverage/
+node_modules/
+package-lock.json
+README.md
+src/
+spec/
+tsconfig.json

@@ -1,0 +1,43 @@
+{
+  "name": "signal-notifier-ts",
+  "version": "1.0.0",
+  "description": "Signal Notifier written in Typescript.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jasmine-ts \"src/test/*.spec.ts\"",
+    "coverage": "nyc -e .ts -x \"./src/test/*.ts\" jasmine-ts \"./src/test/*.ts\"",
+    "coverage-text": "nyc -e .ts report --reporter=text-lcov > coverage/coverage.lcov npm test",
+    "nyc-report": "nyc -e .ts report --reporter=json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rgr-myrg/signal-notifier-ts.git"
+  },
+  "keywords": [
+    "typescript",
+    "signal",
+    "event",
+    "emitter"
+  ],
+  "author": "<solidity@gmx.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rgr-myrg/signal-notifier-ts/issues"
+  },
+  "homepage": "https://github.com/rgr-myrg/signal-notifier-ts#readme",
+  "dependencies": {
+    "signal-ts": "^1.2.4"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^2.8.8",
+    "codecov": "^3.0.0",
+    "istanbul": "^0.4.5",
+    "jasmine-spec-reporter": "^4.2.1",
+    "jasmine-ts": "^0.2.1",
+    "nyc": "^11.5.0",
+    "ts-node": "^4.1.0",
+    "typescript": "^3.0.3"
+  }
+}
