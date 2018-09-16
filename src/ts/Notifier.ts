@@ -20,7 +20,7 @@ export class Notifier implements INotifier {
     }
 
     public schedule(notification: Notification): void {
-        this.notifications.unshift(notification);
+        this.notifications.push(notification);
 
         if (this.shouldNotify) {
             this.postNotifications();

@@ -17,7 +17,7 @@ var Notifier = /** @class */ (function () {
         return new Notification_1.Notification(this, signal);
     };
     Notifier.prototype.schedule = function (notification) {
-        this.notifications.unshift(notification);
+        this.notifications.push(notification);
         if (this.shouldNotify) {
             this.postNotifications();
         }
