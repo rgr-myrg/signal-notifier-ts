@@ -6,7 +6,7 @@ var Notifier = /** @class */ (function () {
         this.notifications = [];
         this.shouldNotify = true;
     }
-    Notifier.prototype.start = function () {
+    Notifier.prototype.resume = function () {
         this.shouldNotify = true;
         this.postNotifications();
     };

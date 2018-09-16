@@ -6,7 +6,7 @@ export class Notifier implements INotifier {
     public notifications: Notification[] = [];
     public shouldNotify: boolean = true;
 
-    public start(): void {
+    public resume(): void {
         this.shouldNotify = true;
         this.postNotifications();
     }

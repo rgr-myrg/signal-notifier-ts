@@ -29,11 +29,11 @@ describe('Notifier Test', () => {
         expect(notifier.postNotifications).toHaveBeenCalledTimes(0);
     });
 
-    it('start() should post notifications', () => {
+    it('resume() should post notifications', () => {
         notifier.pause();
 
         notifier.notify(signal).emit(5);
-        notifier.start();
+        notifier.resume();
 
         expect(notifier.shouldNotify).toBeTruthy();
         expect(notifier.postNotifications).toHaveBeenCalled();
