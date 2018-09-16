@@ -34,7 +34,7 @@ Register a callback with **add()**.
 
 ```typescript
 onCompleted.add((n: number) => {
-	console.log("got a number", n);
+     console.log("got a number", n);
 });
 ```
 
@@ -53,49 +53,50 @@ notifier.notify(onCompleted).emit(299792458);
 ### Automated Teller Machine
 ```typescript
 class ATMProcessor {
-	constructor(atm: ATM) {
-	    // Subscribe to Signals
-		atm.onPinEntered.add((pin: number) => {
-			console.log('pin entered:', pin);
-		});
-		atm.onWithdrawAmount.add((amount: number) => {
-			console.log('withdraw amount:', amount);
-		});
-		atm.onBalanceRequested.add((pin: number) => {
-			console.log('balance requested w/pin:', pin);
-		});
-	}
+     constructor(atm: ATM) {
+         // Subscribe to Signals
+          atm.onPinEntered.add((pin: number) => {
+               console.log('pin entered:', pin);
+          });
+          atm.onWithdrawAmount.add((amount: number) => {
+               console.log('withdraw amount:', amount);
+          });
+          atm.onBalanceRequested.add((pin: number) => {
+               console.log('balance requested w/pin:', pin);
+          });
+     }
 }
+
 // Extend the Notifier and create signals
 class ATM extends Notifier {
-	onPinEntered: Signal<number> = new Signal();
-	onWithdrawAmount: Signal<number> = new Signal();
-	onBalanceRequested: Signal<number> = new Signal();
+     onPinEntered: Signal<number> = new Signal();
+     onWithdrawAmount: Signal<number> = new Signal();
+     onBalanceRequested: Signal<number> = new Signal();
 
-	constructor() {
-		super();
-		new ATMProcessor(this);
-	}
-	// Notify and Emit signals
-	enterPin(pin: number): void {
-		this.notify(this.onPinEntered).emit(pin);
-	}
-	withdrawFunds(amount: number): void {
-		this.notify(this.onWithdrawAmount).emit(amount);
-	}
-	balanceRequest(pin: number): void {
-		this.notify(this.onBalanceRequested).emit(pin);
-	}
-	// Pause notifications
-	connectionDropped(): void {
-	    console.log('ATM disconnected');
-		this.pause();
-	}
-	// Resume notifications
-	connectionOk(): void {
-		console.log('ATM online');
-		this.resume();
-	}
+     constructor() {
+          super();
+          new ATMProcessor(this);
+     }
+     // Notify and Emit signals
+     enterPin(pin: number): void {
+          this.notify(this.onPinEntered).emit(pin);
+     }
+     withdrawFunds(amount: number): void {
+          this.notify(this.onWithdrawAmount).emit(amount);
+     }
+     balanceRequest(pin: number): void {
+          this.notify(this.onBalanceRequested).emit(pin);
+     }
+     // Pause notifications
+     connectionDropped(): void {
+         console.log('ATM disconnected');
+          this.pause();
+     }
+     // Resume notifications
+     connectionOk(): void {
+          console.log('ATM online');
+          this.resume();
+     }
 }
 ```
 ### Use Case
